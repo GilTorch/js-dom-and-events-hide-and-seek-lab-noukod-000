@@ -1,0 +1,39 @@
+function getFirstSelector(selector){
+  return document.querySelector(selector);
+}
+
+function nestedTarget(){
+  return document.querySelector("#nested .target");
+}
+
+function increaseRankBy(n){
+  const allRanks=document.querySelectorAll(".ranked-list")
+  for(let i=0;i<allRanks.length;i++){
+    let content=parseInt(allRanks[i].innerHTML);
+    content++
+    allRanks[i].innerHTML=content
+  }
+}
+
+function deepestChild(){
+  const grandNode=document.querySelector('div#grand-node');
+  let level=0;
+  let nodes=[];
+  function deepNode(root){
+    level++;
+    if(root.hasChildNodes()){
+      let children=root.childNodes;
+      for(var i=0;i<children.length;i++){
+        if(children[i].hasChildNodes()){
+            nodes.push({childNode:children[i],level:level})
+            deepNode(children[i])
+        }else{
+          level--;
+          continue;
+        }
+      }
+    }
+  }
+  deepNode(grandNode);
+return nodes;
+}
