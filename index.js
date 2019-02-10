@@ -25,11 +25,9 @@ function deepestChild(){
       let children=root.childNodes;
       for(var i=0;i<children.length;i++){
         if(children[i].hasChildNodes()){
-            nodes.push({childNode:children[i],level:level})
             deepNode(children[i])
         }else{
-          level--;
-          continue;
+          return children[i];
         }
       }
     }
