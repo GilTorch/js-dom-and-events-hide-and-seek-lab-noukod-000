@@ -20,5 +20,5 @@ function deepestChild(){
   while(grandNode.hasChildNodes()){
     granNode=grandNode.childNodes[0]
   }
-  
+
 }
